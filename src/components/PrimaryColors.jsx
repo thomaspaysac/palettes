@@ -1,11 +1,8 @@
-import { useState } from "react"
-import { ColorBox } from "../components/ColorBox"
-import { PrimaryColors } from "../components/PrimaryColors";
-import { AccentColors } from "../components/AccentColors";
+import { useState, useEffect } from "react"
+import { ColorBox } from "./ColorBox"
 
-export const ColorSelector = () => {
-  const [baseColor, setBaseColor] = useState('#000000');
-  const [palette, setPalette] = useState({});
+export const PrimaryColors = ({base}) => {
+  const [palette, setPalette] = useState({})
 
   const percentage = (value, percentage) => {
     if (value === 0) {
@@ -68,41 +65,34 @@ export const ColorSelector = () => {
       lighter40: `hsl(${h + 20}, ${s - percentage(s,25)}%, ${l + percentage(l,100)}%)`,
       complimentary: `hsl(${h+180}, ${s}%, ${l+20}%)`
     }
-    /*return {
-      base: `hsl(${h}, ${s}%, ${l}%)`,
-      darker10: `hsl(${h-5}, ${s + 10}%, ${l - 10}%)`,
-      darker20: `hsl(${h-10}, ${s + 20}%, ${l - 20}%)`,
-      darker30: `hsl(${h-15}, ${s + 30}%, ${l - 30}%)`,
-      darker40: `hsl(${h-20}, ${s + 40}%, ${l - 40}%)`,
-      lighter10: `hsl(${h+5}, ${s - 10}%, ${l + 20}%)`,
-      lighter20: `hsl(${h+10}, ${s - 15}%, ${l + 40}%)`,
-      lighter30: `hsl(${h+15}, ${s - 20}%, ${l + 60}%)`,
-      lighter40: `hsl(${h+20}, ${s - 25}%, ${l + 80}%)`,
-      complimentary: `hsl(${h+180}, ${s}%, ${l+20}%)`
-    }*/
   }
 
-
-  const changeColor = (e) => {
-    setBaseColor(e.target.value)
-  }
-
-  const createPalette = (e) => {
-    e.preventDefault();
-    const newPalette = hexToHSL(baseColor);
+  const updatePalette = () => {
+    if (!base) {
+      return
+    }
+    const newPalette = hexToHSL(base);
     setPalette(newPalette);
   }
 
+  useEffect(() => {
+    updatePalette()
+  }, [base])
+
   return (
     <div>
-      <form onSubmit={createPalette}>
-        <input type='text' onChange={changeColor} defaultValue={baseColor} />
-        <button type='submit'>Create!</button>
-        <ColorBox color={baseColor} />
-      </form>
-      <PrimaryColors base={baseColor} />
-      <AccentColors base={palette.complimentary} /> 
-      <div>{palette.complimentary}</div>
+      <h3>Primary colors</h3>
+      <div className="row">
+        <ColorBox color={palette.lighter40} desc={100} />
+        <ColorBox color={palette.lighter30} desc={200} />
+        <ColorBox color={palette.lighter20} desc={300} />
+        <ColorBox color={palette.lighter10} desc={400} />
+        <ColorBox color={palette.base} desc={'500 (base)'} />
+        <ColorBox color={palette.darker10} desc={600} />
+        <ColorBox color={palette.darker20} desc={700} />
+        <ColorBox color={palette.darker30} desc={800} />
+        <ColorBox color={palette.darker40} desc={900} />
+      </div>
     </div>
   )
 }
