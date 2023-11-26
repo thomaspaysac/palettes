@@ -4,6 +4,7 @@ import { ColorBox } from "../components/ColorBox"
 import { Palette } from "../components/Palette";
 import { PrimaryColors } from "../components/PrimaryColors";
 import { AccentColors } from "../components/AccentColors";
+import { PaletteMix } from "../components/PaletteMix";
 
 export const ColorSelector = () => {
   const [baseColor, setBaseColor] = useState('#000000');
@@ -27,9 +28,8 @@ export const ColorSelector = () => {
         <button type='submit'>Create!</button>
         <ColorBox color={baseColor} />
       </form>
-      <PrimaryColors base={baseColor} />
-      <Palette name={'Accent'} base={palette.complimentary} />
-      <Palette name={'Accent short'} base={palette.complimentary} length={"small"} />
+      <PaletteMix name={'Primary'} base={baseColor} />
+      <PaletteMix name={'Accent'} base={palette.complimentary} size={'small'} />
     </div>
   )
 }
