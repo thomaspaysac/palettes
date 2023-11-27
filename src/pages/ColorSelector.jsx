@@ -6,6 +6,7 @@ import { Palette } from "../components/Palette";
 import { PrimaryColors } from "../components/PrimaryColors";
 import { AccentColors } from "../components/AccentColors";
 import { PaletteMix } from "../components/PaletteMix";
+import { GreyPalette } from "../components/GreyPalette";
 
 export const ColorSelector = () => {
   const [baseColor, setBaseColor] = useState('#000000');
@@ -37,6 +38,7 @@ export const ColorSelector = () => {
       <PaletteMix name={'Primary'} base={baseColor} />
       <PaletteMix name={'Accent'} base={complimentaryColor} />
       <PaletteMix name={'Greys'} base={'#bcbcbc'} />
+      <GreyPalette name={'Greys 2'} base={baseColor} />
       <PaletteMix name={'Error'} base={'#ff0000'} />
     </div>
   )
