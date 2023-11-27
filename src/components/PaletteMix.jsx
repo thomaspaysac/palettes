@@ -1,6 +1,12 @@
+import { useState, useEffect } from "react"
 import { ColorBoxMix } from "./ColorBoxMix"
 
 export const PaletteMix = ({name, base, size}) => {
+  const [update, setUpdate] = useState();
+  useEffect(() => {
+    setUpdate(update+1);
+  }, [base])
+
   if (size === 'small') {
     return (
       <div>
