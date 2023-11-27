@@ -25,19 +25,6 @@ export const createPalette = (H) => {
   }
 }
 
-/*export const createPalette = (H) => {
-  const hsl = hexToHsl(H);
-  const [h, s, l] = hsl;
-  return {
-    base: `hsl(${h}, ${s}%, ${l}%)`,
-    darker10: `hsl(${h + 1}, ${s * 0.9}%, ${l * 0.87}%)`,
-    darker20: `hsl(${h + 3}, ${s * 0.79}%, ${l * 0.68}%)`,
-    darker30: `hsl(${h + 3}, ${s}%, ${l * 0.49}%)`,
-    darker40: `hsl(${h + 4}, ${s * 1.39}%, ${l * 0.34}%)`,
-    lighter10: `hsl(${h * 0.97}, ${s * 1.12}%, ${l * 1.09}%)`,
-    lighter20: `hsl(${h * 0.95}, ${s * 1.09}%, ${l * 1.18}%)`,
-    lighter30: `hsl(${h * 0.94}, ${s}%, ${l * 1.22}%)`,
-    lighter40: `hsl(${h * 0.91}, ${s * 1.36}%, ${l * 1.27}%)`,
-    complimentary: `hsl(${h+180}, ${s}%, ${l}%)`
-  }
-}*/
+export const rgbToHex = (r, g, b) => {
+  return "#" + (1 << 24 | r << 16 | g << 8 | b).toString(16).slice(1);
+}

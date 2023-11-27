@@ -18,7 +18,6 @@ export const ColorSelector = () => {
     e.preventDefault();
     const newPalette = createPalette(baseColor);
     setPalette(newPalette);
-    console.log(newPalette)
   }
 
   return (
@@ -30,6 +29,7 @@ export const ColorSelector = () => {
       </form>
       <PaletteMix name={'Primary'} base={baseColor} />
       <PaletteMix name={'Accent'} base={palette.complimentary} size={'small'} />
+      <PaletteMix name={'Greys'} base={'#bcbcbc'} />
     </div>
   )
 }
