@@ -5,11 +5,11 @@ export const PaletteMix = ({name, base, size}) => {
   const [update, setUpdate] = useState();
   useEffect(() => {
     setUpdate(update+1);
-  }, [base])
+  }, [])
 
   if (size === 'small') {
     return (
-      <div>
+      <div className="palette">
         <h3>{name}</h3>
         <div className="row">
         <ColorBoxMix color={base} percent={'20'} shade={'#ffffff'} desc={'100'} /> 
@@ -23,7 +23,7 @@ export const PaletteMix = ({name, base, size}) => {
   }
 
   return (
-    <div>
+    <div className="palette">
       <h3>{name}</h3>
       <div className="row">
         <ColorBoxMix color={base} percent={'10'} shade={'#ffffff'} desc={'50'} /> 

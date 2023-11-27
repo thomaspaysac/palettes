@@ -3,7 +3,7 @@ import { rgbToHex } from "../functions";
 
 export const ColorBoxMix = ({color, percent, shade, desc}) => {
   const [hexCode, setHexCode] = useState();
-  const boxRef = useRef();
+  const boxRef = useRef(null);
 
   const calculateHex = () => {
     const col = getComputedStyle(boxRef.current).backgroundColor
@@ -18,7 +18,7 @@ export const ColorBoxMix = ({color, percent, shade, desc}) => {
 
   useEffect(() => {
     calculateHex();
-  }, [])
+  }, [color])
 
   return (
     <div className="color-box_container">
