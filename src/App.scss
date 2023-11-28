@@ -1,5 +1,12 @@
 $base-color: #ff0000;
 
+header {
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  transition: all 0.5s;
+}
+
 .palette {
   background-color: #f8f8f8;
   display: flex;
@@ -28,4 +35,8 @@ $base-color: #ff0000;
   border-radius: 8px;
   border: none;
   box-shadow: inset 1px 1px 4px #0000007e;
+}
+
+.accent-element {
+  transition: all 0.5s;
 }

@@ -1,46 +1,61 @@
 import { useEffect, useState, useCallback } from "react"
 import hexToHsl from "hex-to-hsl";
 import { createPalette, hslToHex } from "../functions"
+import { Header } from "../components/Header";
 import { ColorBox } from "../components/ColorBox"
-import { Palette } from "../components/Palette";
-import { PrimaryColors } from "../components/PrimaryColors";
-import { AccentColors } from "../components/AccentColors";
 import { PaletteMix } from "../components/PaletteMix";
 import { GreyPalette } from "../components/GreyPalette";
 
 export const ColorSelector = () => {
   const [baseColor, setBaseColor] = useState('#000000');
-  const [complimentaryColor, setComplimentaryColor] = useState('#ffffff');
+  const [complementaryColor, setcomplementaryColor] = useState('#ffffff');
 
   const changeColor = (e) => {
     setBaseColor(e.target.value)
-    const complimentary = hexToHsl(e.target.value);
-    complimentary[0] += 180;
-    const temp = hslToHex(complimentary[0], complimentary[1], complimentary[2]);
-    setComplimentaryColor(temp);
+    const complementary = hexToHsl(e.target.value);
+    complementary[0] += 180;
+    const temp = hslToHex(complementary[0], complementary[1], complementary[2]);
+    setcomplementaryColor(temp);
   }
 
   const updatePalette = (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target)
+    /*const formData = new FormData(e.target)
     const data = Object.fromEntries(formData.entries());
     const color = data.color;
-    changeColor(color);
+    changeColor(color);*/
+    const hsl = hexToHsl(baseColor);
+    document.getElementById('header').style.backgroundColor = baseColor;
+    document.getElementById('content').style.backgroundColor = `color-mix(in srgb, #f8f8f8 95%, ${baseColor})`
+    document.querySelectorAll('.accent-element').forEach(el => {
+      el.style.backgroundColor = complementaryColor;
+    })
+    if (hsl[2] < 50) {
+      document.getElementById('header-title').style.color = '#ffffff';
+    } else {
+      document.getElementById('header-title').style.color = '#000000';
+    }
   }
 
   return (
-    <div>
-      <form onSubmit={updatePalette}>
-        <input type='text' name='color' onChange={changeColor} defaultValue={baseColor} />
-        <button type='submit'>Create!</button>
-        <ColorBox color={baseColor} />
-      </form>
-      <PaletteMix name={'Primary'} base={baseColor} />
-      <PaletteMix name={'Accent'} base={complimentaryColor} />
-      <PaletteMix name={'Greys'} base={'#bcbcbc'} />
-      <GreyPalette name={'Greys 2'} base={baseColor} />
-      <PaletteMix name={'Error'} base={'#ff0000'} />
-    </div>
+    <>
+      <Header />
+      <main id="content">
+        <div>
+          <form onSubmit={updatePalette}>
+            <input type='text' name='color' id='color' onChange={changeColor} defaultValue={baseColor} />
+            <button type='submit' className="accent-element">Create!</button>
+            <ColorBox color={baseColor} />
+          </form>
+          <PaletteMix name={'Primary'} base={baseColor} />
+          <PaletteMix name={'Accent'} base={complementaryColor} />
+          <PaletteMix name={'Neutral'} base={'#bcbcbc'} />
+          <GreyPalette name={'Primary Greys'} base={baseColor} />
+          <PaletteMix name={'Error'} base={'#ff0000'} />
+        </div>
+      </main>
+    </>
+    
   )
 }
 
