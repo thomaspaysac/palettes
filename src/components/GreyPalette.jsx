@@ -2,11 +2,6 @@ import { useState, useEffect } from "react"
 import { ColorBoxMix } from "./ColorBoxMix"
 
 export const GreyPalette = ({name, base, size}) => {
-  const [update, setUpdate] = useState();
-  useEffect(() => {
-    setUpdate(update+1);
-  }, [])
-
   return (
     <div className="palette">
       <h3>{name}</h3>

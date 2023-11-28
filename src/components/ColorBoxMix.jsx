@@ -22,8 +22,8 @@ export const ColorBoxMix = ({color, percent, shade, desc}) => {
 
   return (
     <div className="color-box_container">
-      <div className="color-box" ref={boxRef} style={{backgroundColor: `color-mix(in srgb, ${color} ${percent}%, ${shade})`}}></div>
       <div>{desc}</div>
+      <div className="color-box" ref={boxRef} style={{backgroundColor: `color-mix(in srgb, ${color} ${percent}%, ${shade})`}}></div>
       <div>{hexCode}</div>
     </div>
   )
