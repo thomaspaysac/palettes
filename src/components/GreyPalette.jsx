@@ -3,7 +3,7 @@ import { ColorBoxMix } from "./ColorBoxMix"
 
 export const GreyPalette = ({name, base, size}) => {
   return (
-    <div className="palette">
+    <div className="palette" style={{'borderLeft': '16px solid #bcbcbc'}}>
       <h3>{name}</h3>
       <div className="row">
         <ColorBoxMix color={'#f8f8f8'} percent={'95'} shade={base} desc={'50'} /> 

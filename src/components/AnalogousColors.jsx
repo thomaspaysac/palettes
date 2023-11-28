@@ -40,7 +40,7 @@ export const AnalogousPalette = ({name, base, size}) => {
   }
 
   return (
-    <div className="palette">
+    <div className="palette" style={{'borderLeft': '16px solid' + base[0]}}>
       <h3>{name}</h3>
       <Palettes/>
     </div>

@@ -9,7 +9,7 @@ export const PaletteMix = ({name, base, size}) => {
 
   if (size === 'small') {
     return (
-      <div className="palette">
+      <div className="palette" style={{'borderLeft': '16px solid' + base}}>
         <h3>{name}</h3>
         <div className="row">
         <ColorBoxMix color={base} percent={'20'} shade={'#ffffff'} desc={'100'} /> 
@@ -23,7 +23,7 @@ export const PaletteMix = ({name, base, size}) => {
   }
 
   return (
-    <div className="palette">
+    <div className="palette" style={{'borderLeft': '16px solid' + base}}>
       <h3>{name}</h3>
       <div className="row">
         <ColorBoxMix color={base} percent={'10'} shade={'#ffffff'} desc={'50'} /> 

@@ -7,6 +7,8 @@ import { PaletteMix } from "../components/PaletteMix";
 import { AnalogousPalette } from "../components/AnalogousColors";
 import { GreyPalette } from "../components/GreyPalette";
 
+import logo from "../assets/color-palette.png"
+
 export const ColorSelector = () => {
   const [baseColor, setBaseColor] = useState('#000000');
   const [harmony, setHarmony] = useState();
@@ -49,6 +51,7 @@ export const ColorSelector = () => {
         el.style.color = '#000000'
       }
     })
+
     if (hsl_base[2] < 50) {
       document.getElementById('header-title').style.color = '#ffffff';
     } else {
@@ -90,7 +93,7 @@ export const ColorSelector = () => {
       return (
         <>
           <GreyPalette name={'Primary Greys'} base={baseColor} />
-          <PaletteMix name={'Neutral'} base={'#bcbcbc'} />
+          <PaletteMix name={'Neutral Greys'} base={'#bcbcbc'} />
           <PaletteMix name={'Error'} base={'#ff0000'} />
         </>
       )
@@ -100,26 +103,30 @@ export const ColorSelector = () => {
   return (
     <>
       <header id='header'>
-      <h1 id='header-title'>Coolors</h1>
-      <div>
-        <form id='color-input' onSubmit={updatePalette}>
-        <div className="input-form">
-          <div className="color-box" style={{backgroundColor: baseColor}}></div>
-          <input type='text' name='color' id='color' onChange={changeColor} placeholder={'Color hex code'}  />
-          <label htmlFor="harmony">Color harmony: </label>
-          <select name='harmony' id='harmony'>
-            <option value=''>Monochromatic</option>
-            <option value='complementary'>Complementary</option>
-            <option value='analogous'>Analogous</option>
-            <option value='split'>Split complementary</option>
-            <option value='triadic'>Triadic</option>
-            <option value='tetradic'>Tetradic</option>
-          </select>
+        <div>
+          <img src={logo} />
+          <h1 id='header-title'>Coolors</h1>
         </div>
-          
+        <div>
+          <form id='color-input' onSubmit={updatePalette}>
+            <div className="input-form">
+              <div className="color-box" style={{backgroundColor: baseColor}}></div>
+              <input type='text' name='color' id='color' onChange={changeColor} placeholder={'Color hex code'}  />
+              <div>
+                <label htmlFor="harmony">Color harmony: </label>
+                <select name='harmony' id='harmony'>
+                  <option value=''>Monochromatic</option>
+                  <option value='complementary'>Complementary</option>
+                  <option value='analogous'>Analogous</option>
+                  <option value='split'>Split complementary</option>
+                  <option value='triadic'>Triadic</option>
+                  <option value='tetradic'>Tetradic</option>
+                </select>
+              </div>
+            </div>
           <button type='submit' className="accent-element">Create palette</button>
-        </form>
-      </div>
+          </form>
+        </div>
       </header>
       <main id="content">
         <div>

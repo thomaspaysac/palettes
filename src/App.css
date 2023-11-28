@@ -8,9 +8,16 @@ body {
 header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   transition: all 0.5s;
   padding: 24px 64px;
-  gap: 64px; }
+  gap: 64px;
+  border-bottom: 4px solid #000000; }
+  header div:first-of-type {
+    display: flex;
+    gap: 16px; }
+  header img {
+    max-height: 50px; }
   header #header-title {
     font-family: 'Lobster', sans-serif;
     font-size: 3rem;
@@ -38,7 +45,9 @@ header {
       width: 24px; }
 
 #content {
-  padding: 32px; }
+  padding: 32px;
+  display: flex;
+  justify-content: center; }
 
 .palette {
   background-color: #f8f8f8;
@@ -46,10 +55,11 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 24px 0;
+  margin-bottom: 24px;
   padding: 16px 24px;
   width: fit-content;
-  box-shadow: 2px 2px 4px #4444447f; }
+  box-shadow: 2px 2px 4px #4444447f;
+  border-left: 8px solid #444444; }
   .palette h3 {
     margin: 0 0 8px 0; }
   .palette .separator {
@@ -66,9 +76,10 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 4px;
   width: 64px;
-  font-size: 0.9rem; }
+  font-size: 0.9rem;
+  font-weight: 300; }
 
 .color-box {
   height: 50px;
