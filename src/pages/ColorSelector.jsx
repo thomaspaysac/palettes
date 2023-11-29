@@ -106,10 +106,12 @@ export const ColorSelector = () => {
   return (
     <>
       <header id='header'>
+        <a href="https://webpalettes.netlify.app">
         <div>
           <img src={logo} />
           <h1 id='header-title'>WebPalettes</h1>
         </div>
+        </a>
         <div>
           <form id='color-input' onSubmit={updatePalette}>
             <div className="input-form">

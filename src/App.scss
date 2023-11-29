@@ -42,6 +42,7 @@ footer {
     }
   }
 }
+
 header {
   display: flex;
   align-items: center;
@@ -50,6 +51,11 @@ header {
   padding: 24px 100px;
   gap: 64px;
   border-bottom: 4px solid #000000;
+
+  a {
+    text-decoration: none;
+    color: #000000;
+  }
 
   div:first-of-type {
     display: flex;
