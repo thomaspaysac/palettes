@@ -108,7 +108,7 @@ export const ColorSelector = () => {
       <header id='header'>
         <div>
           <img src={logo} />
-          <h1 id='header-title'>Coolors</h1>
+          <h1 id='header-title'>WebPalettes</h1>
         </div>
         <div>
           <form id='color-input' onSubmit={updatePalette}>
