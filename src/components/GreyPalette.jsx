@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react"
 import { ColorBoxMix } from "./ColorBoxMix"
 
 export const GreyPalette = ({name, base, size}) => {

@@ -7,7 +7,6 @@ export const ColorBoxMix = ({color, percent, shade, desc}) => {
 
   const calculateHex = () => {
     const col = getComputedStyle(boxRef.current).backgroundColor
-    //const col = getComputedStyle(e.target).backgroundColor
     const rgb = col.split(' ');
     const r = +rgb[1];
     const g = +rgb[2];

@@ -1,6 +1,6 @@
 import { ColorBoxMix } from "./ColorBoxMix"
 
-export const AnalogousPalette = ({name, base, size}) => {
+export const HarmonyColors = ({name, base, size}) => {
   if (size === 'small') {
     return (
       <div className="palette">

@@ -15,12 +15,13 @@ header {
   align-items: center;
   justify-content: space-between;
   transition: all 0.5s;
-  padding: 24px 64px;
+  padding: 24px 100px;
   gap: 64px;
   border-bottom: 4px solid #000000;
 
   div:first-of-type {
     display: flex;
+    align-items: center;
     gap: 16px;
   }
 
@@ -56,13 +57,29 @@ header {
     }
 
     button {
-      padding: 8px;
-      border-radius: 4px;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+
+      &:hover,
+      &:active {
+        cursor: pointer;
+      }
     }
 
     .color-box {
       height: 24px;
       width: 24px;
+      flex-shrink: 0;
+
+      input[type="color"] {
+        &:hover,
+        &:active {
+          cursor: pointer;
+        }
+      }
+      
     }
   }
 }

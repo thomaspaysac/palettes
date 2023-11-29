@@ -1,10 +1,8 @@
-import { useEffect, useState, useCallback } from "react"
+import { useState } from "react"
 import hexToHsl from "hex-to-hsl";
-import { createPalette, hslToHex } from "../functions"
-import { Header } from "../components/Header";
-import { ColorBox } from "../components/ColorBox"
+import { hslToHex } from "../functions"
 import { PaletteMix } from "../components/PaletteMix";
-import { AnalogousPalette } from "../components/AnalogousColors";
+import { HarmonyColors } from "../components/HarmonyColors";
 import { GreyPalette } from "../components/GreyPalette";
 
 import logo from "../assets/color-palette.png"
@@ -18,6 +16,10 @@ export const ColorSelector = () => {
   const [triadicColors, setTriadicColors] = useState(['#ffffff', '#ffffff']);
   const [tetradicColors, setTetradicColors] = useState(['#ffffff', '#ffffff', '#ffffff']);
   const [paletteUpdate, setPaletteUpdate] = useState(false)
+
+  const setDefault = (e) => {
+    e.target.value = '#';
+  }
 
   const changeColor = (e) => {
     setBaseColor(e.target.value)
@@ -69,19 +71,19 @@ export const ColorSelector = () => {
       )
     } else if (harmony === 'analogous') {
       return (
-        <AnalogousPalette name={'Analogous'} base={analogousColors} />
+        <HarmonyColors name={'Analogous'} base={analogousColors} />
       )
     } else if (harmony === 'split') {
       return (
-        <AnalogousPalette name={'Split complementary'} base={splitComplementaryColors} />
+        <HarmonyColors name={'Split complementary'} base={splitComplementaryColors} />
       )
     } else if (harmony === 'triadic') {
       return (
-        <AnalogousPalette name={'Triadic'} base={triadicColors} />
+        <HarmonyColors name={'Triadic'} base={triadicColors} />
       )
     } else if (harmony === 'tetradic') {
       return (
-        <AnalogousPalette name={'Tetradic'} base={tetradicColors} />
+        <HarmonyColors name={'Tetradic'} base={tetradicColors} />
       )
     }
   }
@@ -94,7 +96,7 @@ export const ColorSelector = () => {
         <>
           <GreyPalette name={'Primary Greys'} base={baseColor} />
           <PaletteMix name={'Neutral Greys'} base={'#bcbcbc'} />
-          <PaletteMix name={'Error'} base={'#ff0000'} />
+          <PaletteMix name={'Error'} base={'#f90000'} />
         </>
       )
     }
@@ -110,8 +112,13 @@ export const ColorSelector = () => {
         <div>
           <form id='color-input' onSubmit={updatePalette}>
             <div className="input-form">
-              <div className="color-box" style={{backgroundColor: baseColor}}></div>
-              <input type='text' name='color' id='color' onChange={changeColor} placeholder={'Color hex code'}  />
+              <label htmlFor="color-picker" className="color-picker_label">
+                <div className="color-box" style={{backgroundColor: baseColor}}>       
+                  <input type='color' name='color-picker' id='color-picker' value={baseColor} onChange={changeColor} style={{opacity:'0'}} />       
+                </div>
+              </label>
+                
+              <input type='text' name='color' id='color' onClick={setDefault} onChange={changeColor} value={baseColor} placeholder={'Color hex code'}  />
               <div>
                 <label htmlFor="harmony">Color harmony: </label>
                 <select name='harmony' id='harmony'>
@@ -136,7 +143,6 @@ export const ColorSelector = () => {
         </div>
       </main>
     </>
-    
   )
 }
 
