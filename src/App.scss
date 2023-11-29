@@ -10,6 +10,38 @@ body {
   margin: 0;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+
+  img {
+    height: 32px;
+    transition: transform 500ms ease-in-out;
+
+    &:hover {
+      transform: rotateZ(360deg);
+    }
+  }
+
+  a {
+    color: #fcfcfc;
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+}
 header {
   display: flex;
   align-items: center;

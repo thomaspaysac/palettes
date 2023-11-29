@@ -6,6 +6,7 @@ import { HarmonyColors } from "../components/HarmonyColors";
 import { GreyPalette } from "../components/GreyPalette";
 
 import logo from "../assets/color-palette.png"
+import githubLogo from '../assets/github.png';
 
 export const ColorSelector = () => {
   const [baseColor, setBaseColor] = useState('#000000');
@@ -142,6 +143,10 @@ export const ColorSelector = () => {
           <SystemPalettes />
         </div>
       </main>
+      <footer>
+        <a href="https://github.com/stagnant-sys/palettes"><img src={githubLogo} alt='' title='Find me on GitHub' /></a>
+      </footer>
+
     </>
   )
 }

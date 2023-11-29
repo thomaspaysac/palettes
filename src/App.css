@@ -5,6 +5,28 @@
 body {
   margin: 0; }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; }
+
+footer {
+  margin-top: auto;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  padding: 8px; }
+  footer img {
+    height: 32px;
+    transition: transform 500ms ease-in-out; }
+    footer img:hover {
+      transform: rotateZ(360deg); }
+  footer a {
+    color: #fcfcfc;
+    text-decoration: none; }
+    footer a:hover, footer a:active {
+      text-decoration: underline; }
+
 header {
   display: flex;
   align-items: center;
