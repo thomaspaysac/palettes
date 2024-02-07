@@ -146,7 +146,7 @@ export const ColorSelector = () => {
         </div>
       </main>
       <footer>
-        <a href="https://github.com/stagnant-sys/palettes"><img src={githubLogo} alt='' title='Find me on GitHub' /></a>
+        <a href="https://github.com/thomaspaysac/palettes"><img src={githubLogo} alt='' title='Find me on GitHub' /></a>
       </footer>
 
     </>
